@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sam.css">
+</head>
+<body>
+    <div class="btn-box">
+        <button class="btn-1" onclick="handleResumeAction()">CV Options</button>
+    </div>
+    
+    <!-- Modal for options -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>What would you like to do with the CV?</p>
+            <button onclick="viewCV()">View CV</button>
+            <button onclick="downloadCV()">Download CV</button>
+        </div>
+    </div>
+
+    <script>
+        function handleResumeAction() {
+            var modal = document.getElementById("resumeModal");
+            var span = document.getElementsByClassName("close")[0];
+
+            // Show the modal
+            modal.style.display = "block";
+
+            // Close the modal when the user clicks on <span> (x)
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Close the modal when the user clicks anywhere outside of the modal
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+
+        function viewCV() {
+            window.open('subburathinam.M Resume1.pdf', '_blank');
+            var modal = document.getElementById("resumeModal");
+            modal.style.display = "none";
+        }
+
+        function downloadCV() {
+            var link = document.createElement('a');
+            link.href = 'subburathinam.M Resume1.pdf';
+            link.download = 'My_Resume.pdf';
+            link.click();
+            var modal = document.getElementById("resumeModal");
+            modal.style.display = "none";
+        }
+    </script>    
+</body>
+</html>
+
+
+
+
+<!-- <div class="btn-box">
+    <a href="subburathinam.M Resume1.pdf" class="btn-1" download="My_Resume.pdf">Download CV</a>
+    <button class="btn-2">Hire Me</button>
+</div> -->
